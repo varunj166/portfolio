@@ -1,0 +1,73 @@
+@mixin resp-xl() {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin resp-lg() {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin resp-md() {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin resp-sm() {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+// =================
+// == CUSTOM GRID ==
+// =================
+// $max-column: 12;
+// .resp-row {
+// 	display: flex;
+// 	flex-flow: row wrap;
+// 	@for $i from 1 through $max-column {
+// 		// $width: #{($i / $max-column)}%;
+// 		.resp-col-#{$i} {
+// 			width: percentage($i / $max-column);
+// 		}
+// 	}
+// 	@for $i from 1 through $max-column {
+// 		.resp-col-xl-#{$i} {
+// 			@include resp-xl {
+// 				width: percentage($i / $max-column);
+// 			}
+// 		}
+// 	}
+// 	@for $i from 1 through $max-column {
+// 		.resp-col-lg-#{$i} {
+// 			@include resp-lg {
+// 				width: percentage($i / $max-column);
+// 			}
+// 		}
+// 	}
+// 	@for $i from 1 through $max-column {
+// 		.resp-col-md-#{$i} {
+// 			@include resp-md {
+// 				width: percentage($i / $max-column);
+// 			}
+// 		}
+// 	}
+// 	@for $i from 1 through $max-column {
+// 		.resp-col-sm-#{$i} {
+// 			@include resp-sm {
+// 				width: percentage($i / $max-column);
+// 			}
+// 		}
+// 	}
+// 	@for $i from 1 through $max-column {
+// 		.resp-col-xs-#{$i} {
+// 			@include resp-xs {
+// 				width: percentage($i / $max-column);
+// 			}
+// 		}
+// 	}
+// }

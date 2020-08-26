@@ -1,0 +1,280 @@
+@import './partials/variables';
+@import './partials/breakpoints';
+/* 
+font-family: 'Comfortaa', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Roboto', sans-serif;
+*/
+
+/* UTILITY CLASSES */
+.opacity-0 {
+  opacity: 0 !important;
+}
+.opacity-1 {
+  opacity: 1 !important;
+}
+.display-none {
+  display: none !important;
+}
+.display-block {
+  display: block;
+}
+/*********************/
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 12px;
+    background: $navyBlue;
+    background-image: linear-gradient(to bottom right, $navyBlue, $darkGrey);
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      @include resp-md {
+        width: 35%;
+      }
+      .logo-container {
+        position: relative;
+        z-index: 1;
+        padding: 4px;
+        img {
+          height: 110px;
+          @include resp-sm {
+            height: 90px;
+          }
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: $lightGrey;
+          border-radius: 20px;
+          z-index: -1;
+          box-shadow: 0 0 8px 6px $lightGrey;
+        }
+      }
+    }
+    .header-text {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      width: 60%;
+      padding: 12px;
+      @include resp-md {
+        width: 65%;
+      }
+      h1 {
+        font-family: 'Comfortaa', cursive;
+        color: $text;
+        font-weight: bold;
+        margin: 8px 0;
+        text-shadow: 0 0 10px white;
+        font-size: 3rem;
+        @include resp-md {
+          font-size: 2.7rem;
+        }
+        @include resp-sm {
+          font-size: 2.3rem;
+        }
+      }
+      h2 {
+        font-family: 'Righteous', cursive;
+        color: $headerLight;
+        margin: 8px 0;
+        font-size: 2rem;
+        font-weight: normal;
+        @include resp-md {
+          font-size: 1.7rem;
+        }
+        @include resp-sm {
+          font-size: 1.3rem;
+        }
+      }
+      h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.4rem;
+        color: $headerLight;
+        margin: 3px 0;
+        @include resp-md {
+          font-size: 1.3rem;
+        }
+        @include resp-sm {
+          font-size: 1rem;
+        }
+      }
+    }
+    .header-links {
+      width: 20%;
+      padding: 8px;
+      @include resp-md {
+        width: 100%;
+        display: flex;
+      }
+      .header-link-row {
+        display: flex;
+        align-items: center;
+        &:not(:last-of-type) {
+          margin-bottom: 20px;
+        }
+        @include resp-md {
+          margin-bottom: 0 !important;
+          &:not(:last-of-type) {
+            margin-right: 30px;
+          }
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+        }
+        a {
+          text-decoration: underline;
+          color: $headerLight;
+          font-size: 1.4rem;
+          font-family: 'Roboto', san-serif;
+          transition: transform 0.1s, color 0.1s, text-shadow 0.1s;
+          &:hover {
+            transform: scale(1.1);
+            color: white;
+            text-shadow: 0 0 5px $blue;
+          }
+          @include resp-md {
+            font-size: 1.3rem;
+          }
+          @include resp-sm {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    background: $lightGrey;
+    background-image: linear-gradient(to bottom right, $lightGrey, white);
+    min-height: 600px;
+    overflow-x: auto;
+    padding: 15px;
+    .buttons-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      .section-nav-button {
+        outline: none;
+        border-radius: 4px;
+        background: $lightGrey;
+        color: $navyBlue;
+        border: 2px solid $navyBlue;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.7rem;
+        padding: 6px 0;
+        width: 155px;
+        transform: scale(1);
+        transition: background $sectionTransitionTime, transform 0.1s,
+          box-shadow 0.2s;
+        cursor: pointer;
+        &:nth-of-type(2) {
+          margin: 0 80px;
+          @include resp-md {
+            margin: 0 55px;
+          }
+          @include resp-sm {
+            margin: 0 14px;
+          }
+        }
+        @include resp-md {
+          font-size: 1.5rem;
+          width: 145px;
+        }
+        @include resp-sm {
+          font-size: 1.2rem;
+          width: 110px;
+        }
+        &:active {
+          transform: scale(0.98);
+        }
+        &:hover {
+          box-shadow: 0 0 5px 2px $blue;
+        }
+        &.active {
+          background: $navyBlue;
+          color: $lightGrey;
+        }
+      }
+    }
+    .section-wrapper {
+      position: relative;
+      .inner-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity $sectionTransitionTime;
+        &.active {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  footer {
+    position: relative;
+    background: $navyBlue;
+    padding: 35px 0;
+    z-index: 1;
+    h3 {
+      font-family: 'Righteous', cursive;
+      color: $headerLight;
+      font-size: 2rem;
+      text-align: center;
+      margin: 0;
+      text-shadow: 0 0 2px black;
+      z-index: 1;
+      @include resp-md {
+        font-size: 1.7rem;
+      }
+      @include resp-sm {
+        font-size: 1.4rem;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../imgs/vr-logo_cmp.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: -1;
+    }
+  }
+}
