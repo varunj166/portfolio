@@ -22,21 +22,21 @@
   <div class="container">
     <header>
       <div class="logo-wrapper">
-        <div class="logo-container">
+        <div class="logo-container" data-aos="zoom-in">
           <img src="${require('./imgs/vr-logo_cmp.png')}" alt="Logo" />
         </div>
       </div>
       <div class="header-text">
-        <h1>Developer Portfolio</h1>
-        <h2>Varun Jain</h2>
-        <h3>Full Stack Web Developer</h3>
+        <h1 data-aos="fade-up">Developer Portfolio</h1>
+        <h2 data-aos="fade-up" data-aos-delay="50">Varun Jain</h2>
+        <h3 data-aos="fade-up" data-aos-delay="100">Full Stack Web Developer</h3>
       </div>
       <div class="header-links">
-        <div class="header-link-row">
+        <div class="header-link-row" data-aos="fade-left">
           <img src="${require('./imgs/file-icon.png')}" alt="File icon" />
           <a href="${require('./misc/resume.pdf')}" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
-        <div class="header-link-row">
+        <div class="header-link-row" data-aos="fade-left" data-aos-delay="100">
           <img src="${require('./imgs/github-logo-crop.png')}" alt="Github logo" />
           <a href="https://github.com/varunj166" target="_blank" rel="noopener noreferrer">Github</a>
         </div>
@@ -44,30 +44,143 @@
     </header>
 
     <main>
-      <div class="buttons-wrapper">
-        <button id="bio-button" class="section-nav-button active" data-target-section="bio-section">BIO</button>
-        <button id="skills-button" class="section-nav-button" data-target-section="skills-section">SKILLS</button>
-        <button id="projects-button" class="section-nav-button" data-target-section="projects-section">PROJECTS</button>
+      <div class="buttons-wrapper" data-aos="fade-up" data-aos-delay="50">
+        <button class="section-nav-button" data-target-section="bio-section">BIO</button>
+        <button class="section-nav-button" data-target-section="skills-section">SKILLS</button>
+        <button class="section-nav-button active" data-target-section="projects-section">PROJECTS</button>
       </div>
 
-      <div class="section-wrapper">
-        <section id="bio-section" class="inner-section active">
-          <h1>BIO</h1>
+      <div class="section-wrapper" data-aos="fade-up" data-aos-delay="150">
+        <section id="bio-section" class="inner-section display-none">
+          <h1>A Brief Introduction</h1>
+          <p>I am a self-taught (self-directed and self-motivated) full stack web developer. I specialize in
+            javascript/typescript on the front- and back-ends, and I understand that what I <em>do</em> know will always
+            be
+            eclipsed by what I <em>don't</em> know.</p>
+          <p>Born and raised in Toronto, I struggled to find my calling after graduating university. Two years ago,
+            after packing in my final attempt at making a living from electronic day-trading, I dove head-first into the
+            world of software development, with a focus on web development. Having a good understanding of how best to
+            learn new things, I knew the best way to start was by building a solid foundation.</p>
+          <p>I started with foundational computer science concepts to help me understand what the computer was up to
+            under the hood, and how to measure the performance of executed code. I then applied this ground-up
+            approach to every new concept and technology I encountered on my way to becoming a skilled web
+            developer.</p>
+          <p>I truly enjoy encountering new technologies, new ways of thinking, and new approaches to solving problems
+            with technology. I am constantly on the search to expand my knowledge and abilities, and figure out new ways
+            of providing value to end-users and potential employers.</p>
         </section>
         <section id="skills-section" class="inner-section display-none">
-          <h1>SKILLS</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas vero, deleniti blanditiis placeat
-            incidunt consequuntur magnam dolore dolores nostrum officia ipsam iure eos vel qui iusto, reiciendis quam.
-            Autem?</p>
+          <h1>Core Competencies</h1>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3 + SASS</li>
+            <li>Javascript (including ES2015+)</li>
+            <li>Typescript</li>
+            <li>NodeJS + Express</li>
+            <li>React (including 16.8) + Redux</li>
+            <li>NoSQL (MongoDB)</li>
+            <li>SQL (MySQL)</li>
+            <li>Java SE 11</li>
+            <li>Android Development (beginner)</li>
+          </ul>
         </section>
-        <section id="projects-section" class="inner-section display-none">
-          <h1>PROJECTS</h1>
+        <section id="projects-section" class="inner-section active">
+          <h1>Projects</h1>
+          <div class="project-container weewur-container">
+            <div class="image-preview-container">
+              <a href="https://www.weewur.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://m.media-amazon.com/images/M/MV5BOGRlOGFiMDAtOWM4MS00ODQ3LWFkMDYtNzM3YzFmNDIyZjRhXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,893,1000_AL_.jpg"
+                  alt="Project preview image" />
+              </a>
+            </div>
+            <div class="description-container">
+              <a href="https://www.weewur.com" target="_blank" rel="noopener noreferrer">
+                <h2 class="weewur-title">WeeWur</h2>
+              </a>
+              <p><strong>WeeWur</strong> is a production-grade, full-scale web application that was conceived, designed,
+                and built entirely by me. Its purpose is to give people the ability to easily share photos and videos
+                between themselves when they are out together at casual and formal events.</p>
+              <button class="read-more-button" data-target-block="weewur-read-more"><span class="read-more-text">Read
+                  More</span><span class="chevron"></span></button>
+              <div id="weewur-read-more" class="read-more-block">
+                <div class="read-more-block-inner">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
+                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
+                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
+                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
+                  eos.
+                  Eum enim quibusdam placeat error in!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="image-preview-container">
+              <a href="https://github.com/varunj166/react-proforma" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://m.media-amazon.com/images/M/MV5BNjM1ZDFiNzMtODg5NS00YTgxLTg0NzUtNmFmZWViY2RjMDAwXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,932,1000_AL_.jpg"
+                  alt="Project preview image" />
+              </a>
+            </div>
+            <div class="description-container">
+              <a href="https://github.com/varunj166/react-proforma" target="_blank" rel="noopener noreferrer">
+                <h2>React Proforma</h2>
+              </a>
+              <p><strong>React Proforma</strong> is a full-featured React forms library designed to help developers
+                easily build their web forms. There isn't much demand for yet another React forms library, but I built
+                it anyway as a show-piece for my abilities, and for use in my own projects.</p>
+              <button class="read-more-button" data-target-block="react-proforma-read-more"><span
+                  class="read-more-text">Read
+                  More</span><span class="chevron"></span></button>
+              <div id="react-proforma-read-more" class="read-more-block">
+                <div class="read-more-block-inner">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
+                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
+                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
+                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
+                  eos.
+                  Eum enim quibusdam placeat error in!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="image-preview-container">
+              <a href="https://github.com/varunj166/mq-styled-components" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://m.media-amazon.com/images/M/MV5BODBjZjZhNjktYTQyOC00NjJkLThkYjMtZDZjMmFiOThlMzdkXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,1497,1000_AL_.jpg"
+                  alt="Project preview image" />
+              </a>
+            </div>
+            <div class="description-container">
+              <a href="https://github.com/varunj166/mq-styled-components" target="_blank" rel="noopener noreferrer">
+                <h2>Mq Styled Components</h2>
+              </a>
+              <p><strong>Mq Styled Components</strong> is a small library designed to be integrated with the Styled
+                Components css-in-js package. It stores customizable breakpoints, and returns a media query string for a
+                given breakpoint that gets emedded into a component's style rules template string.</p>
+              <button class="read-more-button" data-target-block="mq-styled-components-read-more"><span
+                  class="read-more-text">Read
+                  More</span><span class="chevron"></span></button>
+              <div id="mq-styled-components-read-more" class="read-more-block">
+                <div class="read-more-block-inner">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
+                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
+                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
+                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
+                  eos.
+                  Eum enim quibusdam placeat error in!
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>
 
     <footer id="footer">
-      <h3 id="footer-text"></h3>
+      <h3 id="footer-text" data-aos="fade-up"></h3>
     </footer>
   </div>
 

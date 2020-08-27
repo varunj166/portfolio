@@ -1,0 +1,7 @@
+@mixin floatingBox1 {
+  border: 2px solid $lightGrey;
+  border-radius: 5px;
+  box-shadow: -1px -1px 3px 1px $darkGrey;
+  background: #f2f2f2;
+  background-image: linear-gradient(to bottom right, #f2f2f2, white);
+}

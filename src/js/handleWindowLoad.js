@@ -1,3 +1,4 @@
+import aos from 'aos';
 import { setFooterYear } from './setFooterYear';
 import { clickListeners } from './clickListeners';
 
@@ -16,4 +17,12 @@ export function handleWindowLoad(event) {
       }
     }
   }
+
+  aos.init({
+    duration: 500,
+    mirror: false,
+    debounceDelay: 200,
+    once: true,
+    offset: 50
+  });
 }

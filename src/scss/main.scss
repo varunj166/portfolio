@@ -1,5 +1,6 @@
 @import './partials/variables';
 @import './partials/breakpoints';
+@import './partials/mixins';
 /* 
 font-family: 'Comfortaa', cursive;
 font-family: 'Righteous', cursive;
@@ -39,10 +40,13 @@ html {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
   header {
     display: flex;
     flex-flow: row wrap;
     padding: 12px;
+    overflow-y: hidden;
+    overflow-x: hidden;
     background: $navyBlue;
     background-image: linear-gradient(to bottom right, $navyBlue, $darkGrey);
     .logo-wrapper {
@@ -175,14 +179,21 @@ html {
   main {
     background: $lightGrey;
     background-image: linear-gradient(to bottom right, $lightGrey, white);
-    min-height: 600px;
+    min-height: 650px;
     overflow-x: auto;
-    padding: 15px;
+    padding: 18px;
+    @include resp-md {
+      padding: 16px;
+    }
+    @include resp-sm {
+      padding: 12px;
+    }
     .buttons-wrapper {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
       .section-nav-button {
+        position: relative;
         outline: none;
         border-radius: 4px;
         background: $lightGrey;
@@ -193,8 +204,7 @@ html {
         padding: 6px 0;
         width: 155px;
         transform: scale(1);
-        transition: background $sectionTransitionTime, transform 0.1s,
-          box-shadow 0.2s;
+        transition: background $sectionTransitionTime, box-shadow 0.2s;
         cursor: pointer;
         &:nth-of-type(2) {
           margin: 0 80px;
@@ -218,10 +228,27 @@ html {
         }
         &:hover {
           box-shadow: 0 0 5px 2px $blue;
+          &::after {
+            transform: scale(1);
+            opacity: 1;
+          }
         }
         &.active {
           background: $navyBlue;
           color: $lightGrey;
+        }
+        &::after {
+          position: absolute;
+          content: '';
+          width: 100%;
+          left: 0;
+          bottom: -12px;
+          height: 3px;
+          background: $blue;
+          transform-origin: 50% 50%;
+          transform: scale(0);
+          opacity: 0;
+          transition: transform 0.2s, opacity 0.2s;
         }
       }
     }
@@ -238,6 +265,145 @@ html {
           display: block;
           opacity: 1;
         }
+        h1 {
+          font-family: 'Comfortaa', cursive;
+          font-size: 2.5rem;
+          color: $navyBlue;
+          margin: 18px 0;
+          @include resp-md {
+            font-size: 2.2rem;
+          }
+          @include resp-sm {
+            font-size: 1.7rem;
+          }
+        }
+        p,
+        li {
+          color: $text;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.4rem;
+          @include resp-md {
+            font-size: 1.3rem;
+          }
+          @include resp-sm {
+            font-size: 1.1rem;
+          }
+        }
+        p:not(:last-of-type),
+        li:not(:last-of-type) {
+          margin: 0;
+          margin-bottom: 12px;
+        }
+        ul {
+          list-style: none;
+          display: flex;
+          flex-flow: column wrap;
+          @include floatingBox1;
+          padding: 8px;
+          height: 370px;
+          @include resp-md {
+            height: auto;
+          }
+          li {
+            padding: 15px 0 15px 50px;
+            font-weight: bold;
+            background-image: url('../imgs/blue-bullet-icon-trim-scale_cmp.png');
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 40px 40px;
+            @include resp-sm {
+              background-size: 30px 30px;
+              padding: 12px 0 12px 45px;
+            }
+          }
+        }
+      }
+      #projects-section {
+        .project-container {
+          @include floatingBox1;
+          display: flex;
+          flex-flow: row wrap;
+          padding: 12px;
+          margin-bottom: 15px;
+          &.weewur-container {
+            background: white;
+          }
+          .image-preview-container,
+          .description-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include resp-md {
+              width: 100% !important;
+            }
+          }
+          .image-preview-container {
+            width: 30%;
+            img {
+              width: 90%;
+              max-width: 200px;
+              border-radius: 5px;
+              box-shadow: none;
+              transition: transform 0.2s, box-shadow 0.2s;
+              cursor: pointer;
+              &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 2px 1px $darkGrey;
+              }
+            }
+          }
+          .description-container {
+            width: 70%;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            a {
+              text-decoration: none;
+            }
+            h2 {
+              margin: 15px 0;
+              font-family: 'Righteous', cursive;
+              font-size: 2rem;
+              font-weight: normal;
+              color: $navyBlue;
+              text-shadow: -0.5px -0.5px 1px $darkGrey;
+              &.weewur-title {
+                color: $weewurPurple;
+              }
+            }
+            p {
+              color: $text;
+              font-family: 'Roboto', sans-serif;
+              font-size: 1.3rem;
+              margin: 0;
+              @include resp-md {
+                font-size: 1.2rem;
+              }
+              @include resp-sm {
+                font-size: 1.1rem;
+              }
+            }
+            .read-more-block {
+              font-family: 'Roboto', sans-serif;
+              font-size: 1.3rem;
+              color: $text;
+              overflow-y: hidden;
+              @include resp-md {
+                font-size: 1.2rem;
+              }
+              @include resp-sm {
+                font-size: 1.1rem;
+              }
+              transition: height 0.3s;
+              height: 0;
+              .read-more-block-inner {
+                margin: 3px 0;
+                border: 2px solid $navyBlue;
+                border-radius: 5px;
+                padding: 5px;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -247,6 +413,7 @@ html {
     background: $navyBlue;
     padding: 35px 0;
     z-index: 1;
+    overflow-y: hidden;
     h3 {
       font-family: 'Righteous', cursive;
       color: $headerLight;
@@ -275,6 +442,52 @@ html {
       background-size: cover;
       opacity: 0.1;
       z-index: -1;
+    }
+  }
+}
+
+.read-more-button {
+  font-size: 1.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: $navyBlue;
+  outline: none;
+  border: 2px solid $navyBlue;
+  background: $lightGrey;
+  border-radius: 3px;
+  padding: 4px 10px;
+  margin: 12px 0;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  &:active {
+    transform: scale(0.98);
+  }
+  @include resp-md {
+    font-size: 1.2rem;
+  }
+  @include resp-sm {
+    font-size: 1.1rem;
+  }
+  .chevron {
+    display: inline-block;
+    border-bottom: 2px solid $navyBlue;
+    border-left: 2px solid $navyBlue;
+    height: 15px;
+    width: 15px;
+    margin-left: 25px;
+    transition: transform 0.2s;
+    transform: rotate(45deg);
+    @include resp-sm {
+      height: 12px;
+      width: 12px;
+    }
+  }
+  &.expanded {
+    color: white;
+    background: $navyBlue;
+    .chevron {
+      border-bottom: 2px solid white;
+      border-left: 2px solid white;
+      transform: rotate(-45deg) translateY(-5px);
     }
   }
 }
