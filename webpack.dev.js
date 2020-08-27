@@ -11,7 +11,10 @@ module.exports = merge(common, {
   },
   devtool: 'inline-source-map',
   devServer: {
-    writeToDisk: false
+    writeToDisk: false,
+    port: '8080',
+    host: '0.0.0.0',
+    openPage: 'http://localhost:8080/'
   },
   plugins: [
     new HtmlWebpackPlugin({

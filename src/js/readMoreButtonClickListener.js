@@ -75,7 +75,10 @@ function handleTransitionEnd(event) {
     return;
   }
 
-  target.style.height = 'auto';
+  // Check here in case of a quick double-click
+  if (target.classList.contains('expanded')) {
+    target.style.height = 'auto';
+  }
 
   target.removeEventListener('transitionend', handleTransitionEnd);
 }

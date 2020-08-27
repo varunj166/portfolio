@@ -54,7 +54,7 @@
         <section id="bio-section" class="inner-section display-none">
           <h1>A Brief Introduction</h1>
           <p>I am a self-taught (self-directed and self-motivated) full stack web developer. I specialize in
-            javascript/typescript on the front- and back-ends, and I understand that what I <em>do</em> know will always
+            javascript/typescript on the front- and back-ends. I understand that what I <em>do</em> know will always
             be
             eclipsed by what I <em>don't</em> know.</p>
           <p>Born and raised in Toronto, I struggled to find my calling after graduating university. Two years ago,
@@ -89,9 +89,7 @@
           <div class="project-container weewur-container">
             <div class="image-preview-container">
               <a href="https://www.weewur.com" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://m.media-amazon.com/images/M/MV5BOGRlOGFiMDAtOWM4MS00ODQ3LWFkMDYtNzM3YzFmNDIyZjRhXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,893,1000_AL_.jpg"
-                  alt="Project preview image" />
+                <img src="${require('./imgs/weewur-logo-bg-192x192_cmp.png')}" alt="Project preview image" />
               </a>
             </div>
             <div class="description-container">
@@ -105,12 +103,27 @@
                   More</span><span class="chevron"></span></button>
               <div id="weewur-read-more" class="read-more-block">
                 <div class="read-more-block-inner">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
-                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
-                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
-                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
-                  eos.
-                  Eum enim quibusdam placeat error in!
+                  <p>WeeWur's front-end has been built using React, React Router, and Redux, written in Typescript. The
+                    back-end was built with NodeJS using the Express framework, also written in Typescript, behind a PM2
+                    cluster.</p>
+                  <p>I chose MongoDB as my database because of how well NoSQL plays with Javascript, and for its easy
+                    horizontal scalability (sharding) should WeeWur grow to require such scaling.</p>
+                  <p><strong>Particularly notable features include:</strong> highly scalable image and video processing,
+                    database caching
+                    layer with Redis, strong security measures (csrf and xss protection, rate limiting, one-way password
+                    hashing and salting, CSP, etc.), real-time client-side notifications using Server Sent Events,
+                    mobile
+                    push notifications using the Push API, and third-party OAuth integration.</p>
+                  <p>I have commercial aspirations for WeeWur, so I cannot make my entire codebase available publicly,
+                    but I will be more than happy to talk about how I implemented any features of interest
+                    to you, and share code-snippets if requested.</p>
+                  <p>If you wish to look around and try out the WeeWur platform, I have set up a dummy account that you
+                    can use:</p>
+                  <p><strong>Username:</strong> <em>"username"</em> &mdash; <strong>Password:</strong>
+                    <em>"password"</em></p>
+                  <p>Feel free to click around and upload photos and videos (you can delete them after). Much of
+                    WeeWur's functionality comes from interactions with others, but you should be able to get a feel for
+                    what I've made.</p>
                 </div>
               </div>
             </div>
@@ -118,9 +131,7 @@
           <div class="project-container">
             <div class="image-preview-container">
               <a href="https://github.com/varunj166/react-proforma" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://m.media-amazon.com/images/M/MV5BNjM1ZDFiNzMtODg5NS00YTgxLTg0NzUtNmFmZWViY2RjMDAwXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,932,1000_AL_.jpg"
-                  alt="Project preview image" />
+                <img src="${require('./imgs/react-proforma-logo.png')}" alt="Project preview image" />
               </a>
             </div>
             <div class="description-container">
@@ -135,12 +146,15 @@
                   More</span><span class="chevron"></span></button>
               <div id="react-proforma-read-more" class="read-more-block">
                 <div class="read-more-block-inner">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
-                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
-                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
-                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
-                  eos.
-                  Eum enim quibusdam placeat error in!
+                  <p>There are many React forms libraries out there, with Formik taking the lion's share of the market,
+                    but I wasn't quite happy using any of the options out there for my own projects.</p>
+                  <p>Because of that, I decided to build React Proforma as a proper, publishable package, complete with
+                    a comprehensive readme and video tutorial.</p>
+                  <p><strong>Particularly notable features include:</strong> fully documented (JSDoc style), strong
+                    unit-testing using Jest and React Testing Library, CI/CD through Coveralls, and advanced React
+                    concepts and design.</p>
+                  <p>My hope is that a substantial library like React Proforma adequately demonstrates my abilities with
+                    React, Typescript, testing and documenting my code, CI/CD, and version control with Git.</p>
                 </div>
               </div>
             </div>
@@ -148,9 +162,7 @@
           <div class="project-container">
             <div class="image-preview-container">
               <a href="https://github.com/varunj166/mq-styled-components" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://m.media-amazon.com/images/M/MV5BODBjZjZhNjktYTQyOC00NjJkLThkYjMtZDZjMmFiOThlMzdkXkEyXkFqcGdeQXVyMjc0NjkyNTQ@._V1_SY1000_CR0,0,1497,1000_AL_.jpg"
-                  alt="Project preview image" />
+                <img src="${require('./imgs/mq-styled-components-logo.png')}" alt="Project preview image" />
               </a>
             </div>
             <div class="description-container">
@@ -165,12 +177,12 @@
                   More</span><span class="chevron"></span></button>
               <div id="mq-styled-components-read-more" class="read-more-block">
                 <div class="read-more-block-inner">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem consectetur ad voluptas ea
-                  illum, sapiente harum? Sunt doloribus voluptates libero odio veritatis quod adipisci totam, corporis
-                  atque, quisquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae delectus
-                  veritatis quaerat consectetur molestias et qui, facere sint tenetur laborum incidunt eveniet neque
-                  eos.
-                  Eum enim quibusdam placeat error in!
+                  <p>This is a very small convenience library, built with similar motivations to React Proforma above.
+                  </p>
+                  <p>While I do find it useful, I built it as a full publishable package mainly to demonstrate my
+                    abilities and knowledge of web development tooling.</p>
+                  <p><strong>Particularly notable features include:</strong> fully documented (JSDoc style), strong
+                    unit-testing using Jest, CI/CD through Coveralls, and minor object-oriented design.</p>
                 </div>
               </div>
             </div>

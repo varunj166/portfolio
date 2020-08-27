@@ -179,8 +179,6 @@ html {
   main {
     background: $lightGrey;
     background-image: linear-gradient(to bottom right, $lightGrey, white);
-    min-height: 650px;
-    overflow-x: auto;
     padding: 18px;
     @include resp-md {
       padding: 16px;
@@ -192,6 +190,12 @@ html {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
+      padding: 15px 0;
+      margin-bottom: 5px;
+      z-index: 5;
+      box-shadow: -1px -1px 5px 3px $darkGrey;
+      background: $blue2;
+      background-image: linear-gradient(to bottom right, $blue2, $blue2Fade);
       .section-nav-button {
         position: relative;
         outline: none;
@@ -254,6 +258,8 @@ html {
     }
     .section-wrapper {
       position: relative;
+      min-height: 580px;
+      overflow-x: auto;
       .inner-section {
         position: absolute;
         top: 0;
@@ -282,6 +288,7 @@ html {
           color: $text;
           font-family: 'Roboto', sans-serif;
           font-size: 1.4rem;
+          margin: 0;
           @include resp-md {
             font-size: 1.3rem;
           }
@@ -291,8 +298,7 @@ html {
         }
         p:not(:last-of-type),
         li:not(:last-of-type) {
-          margin: 0;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
         }
         ul {
           list-style: none;
@@ -300,7 +306,7 @@ html {
           flex-flow: column wrap;
           @include floatingBox1;
           padding: 8px;
-          height: 370px;
+          height: 380px;
           @include resp-md {
             height: auto;
           }
@@ -400,6 +406,12 @@ html {
                 border: 2px solid $navyBlue;
                 border-radius: 5px;
                 padding: 5px;
+                p {
+                  margin: 0;
+                }
+                p:not(:last-of-type) {
+                  margin-bottom: 14px;
+                }
               }
             }
           }
