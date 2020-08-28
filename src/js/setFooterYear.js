@@ -1,6 +1,8 @@
 export function setFooterYear() {
-  const footer = document.getElementById('footer-text');
-  const year = new Date().getFullYear();
+  const footerYear = document.getElementById('footer-year');
+  if (!footerYear) {
+    return;
+  }
 
-  footer.innerHTML = '&copy; Varun Jain, ' + year;
+  footerYear.innerText = '' + new Date().getFullYear();
 }

@@ -1,16 +1,16 @@
 export function mainSectionButtonClickListener(event) {
-  const { target } = event;
-  if (!target) {
+  const { currentTarget } = event;
+  if (!currentTarget) {
     return;
   }
 
-  const sectionEl = getTargetSectionEl(target);
+  const sectionEl = getTargetSectionEl(currentTarget);
   if (!sectionEl) {
     return;
   }
 
   // Toggle button to active
-  toggleButtonActive(target);
+  toggleButtonActive(currentTarget);
 
   // Toggle section to active
   toggleSectionActive(sectionEl);
@@ -61,6 +61,8 @@ function toggleSectionActive(el) {
 
   el.classList.remove('display-none');
   setTimeout(() => {
+    document.querySelector('main').style.height = el.scrollHeight + 30 + 'px';
+
     el.classList.add('active');
   }, 50);
 }
@@ -71,7 +73,9 @@ function handleTransitionEnd(event) {
     return;
   }
 
-  target.classList.add('display-none');
+  if (!target.classList.contains('active')) {
+    target.classList.add('display-none');
+  }
 
   target.removeEventListener('transitionend', handleTransitionEnd);
 }

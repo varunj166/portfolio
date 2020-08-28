@@ -1,22 +1,13 @@
 import aos from 'aos';
+import { initMain } from './initMain';
 import { setFooterYear } from './setFooterYear';
 import { clickListeners } from './clickListeners';
+import { attachClickListeners } from './attachClickListeners';
 
 export function handleWindowLoad(event) {
   setFooterYear();
 
-  for (let clickListener of clickListeners) {
-    if (!Array.isArray(clickListener.element)) {
-      clickListener.element.addEventListener('click', clickListener.listener);
-    } else {
-      for (let element of clickListener.element) {
-        if (!element) {
-          continue;
-        }
-        element.addEventListener('click', clickListener.listener);
-      }
-    }
-  }
+  attachClickListeners(clickListeners);
 
   aos.init({
     duration: 500,
@@ -25,4 +16,6 @@ export function handleWindowLoad(event) {
     once: true,
     offset: 50
   });
+
+  initMain();
 }
