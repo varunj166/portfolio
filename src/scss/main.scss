@@ -205,10 +205,10 @@ html {
       &:nth-of-type(2) {
         margin: 0 80px;
         @include resp-md {
-          margin: 0 55px;
+          margin: 0 45px;
         }
         @include resp-sm {
-          margin: 0 14px;
+          margin: 0 10px;
         }
       }
       @include resp-md {
@@ -380,6 +380,7 @@ html {
             border-radius: 5px;
             box-shadow: none;
             transition: transform 0.2s, box-shadow 0.2s;
+            padding: 10px;
             cursor: pointer;
             &:hover {
               transform: scale(1.05);
@@ -497,9 +498,12 @@ html {
   padding: 4px 10px;
   margin: 12px 0;
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
   &:active {
     transform: scale(0.98);
+  }
+  &:hover {
+    box-shadow: 0 0 5px 2px $blue;
   }
   @include resp-md {
     font-size: 1.2rem;
