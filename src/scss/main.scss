@@ -503,7 +503,7 @@ html {
     transform: scale(0.98);
   }
   &:hover {
-    box-shadow: 0 0 5px 2px $blue;
+    box-shadow: 0 0 3px 2px $blue;
   }
   @include resp-md {
     font-size: 1.2rem;
