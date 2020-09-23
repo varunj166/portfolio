@@ -3,16 +3,16 @@ import { initMain } from './initMain';
 import { setFooterYear } from './setFooterYear';
 import { clickListeners } from './clickListeners';
 import { attachClickListeners } from './attachClickListeners';
-import { handlePopstate } from './handlePopstate';
+// import { handlePopstate } from './handlePopstate';
 
 export function handleWindowLoad(event) {
   setFooterYear();
 
   attachClickListeners(clickListeners);
 
-  window.history.pushState('bio', null, window.location.pathname + 'bio');
+  // window.history.pushState('bio', null, window.location.pathname + 'bio');
 
-  window.addEventListener('popstate', handlePopstate);
+  // window.addEventListener('popstate', handlePopstate);
 
   aos.init({
     duration: 500,

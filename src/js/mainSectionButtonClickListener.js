@@ -19,9 +19,9 @@ export function mainSectionButtonClickListener(event) {
   toggleSectionActive(sectionData.element);
 
   // Manipulate history
-  if (sectionData.url) {
-    setHistory(sectionData.url);
-  }
+  // if (sectionData.url) {
+  //   setHistory(sectionData.url);
+  // }
 }
 
 // ===================================
@@ -47,9 +47,9 @@ function getTargetSectionEl(el) {
   };
 }
 
-function setHistory(url) {
-  const splitPathname = window.location.pathname.split('/');
-  splitPathname[splitPathname.length - 1] = url;
+// function setHistory(url) {
+//   const splitPathname = window.location.pathname.split('/');
+//   splitPathname[splitPathname.length - 1] = url;
 
-  window.history.pushState(url, null, splitPathname.join('/'));
-}
+//   window.history.pushState(url, null, splitPathname.join('/'));
+// }
