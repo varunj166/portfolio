@@ -1,11 +1,14 @@
+import { toggleButtonActive } from './toggleButtonActive';
+import { toggleSectionActive } from './toggleSectionActive';
+
 export function mainSectionButtonClickListener(event) {
   const { currentTarget } = event;
   if (!currentTarget) {
     return;
   }
 
-  const sectionEl = getTargetSectionEl(currentTarget);
-  if (!sectionEl) {
+  const sectionData = getTargetSectionEl(currentTarget);
+  if (!sectionData.element) {
     return;
   }
 
@@ -13,69 +16,40 @@ export function mainSectionButtonClickListener(event) {
   toggleButtonActive(currentTarget);
 
   // Toggle section to active
-  toggleSectionActive(sectionEl);
+  toggleSectionActive(sectionData.element);
+
+  // Manipulate history
+  if (sectionData.url) {
+    setHistory(sectionData.url);
+  }
 }
 
 // ===================================
 
 function getTargetSectionEl(el) {
-  const targetSection = el.getAttribute('data-target-section');
-  if (!targetSection) {
-    return undefined;
-  }
+  let targetSectionEl = undefined;
 
-  const targetSectionEl = document.getElementById(targetSection);
-  if (!targetSectionEl) {
-    return undefined;
+  const targetSection = el.getAttribute('data-target-section');
+  if (targetSection) {
+    targetSectionEl = document.getElementById(targetSection);
   }
 
   const isActive = targetSectionEl.classList.contains('active');
   if (isActive) {
-    return undefined;
+    targetSectionEl = undefined;
   }
 
-  return targetSectionEl;
+  let url = el.getAttribute('data-url');
+
+  return {
+    element: targetSectionEl,
+    url: url
+  };
 }
 
-function toggleButtonActive(el) {
-  const currentlyActiveEl = document.querySelector(
-    '.section-nav-button.active'
-  );
-  if (!currentlyActiveEl) {
-    return;
-  }
+function setHistory(url) {
+  const splitPathname = window.location.pathname.split('/');
+  splitPathname[splitPathname.length - 1] = url;
 
-  currentlyActiveEl.classList.remove('active');
-
-  el.classList.add('active');
-}
-
-function toggleSectionActive(el) {
-  const currentlyActiveEl = document.querySelector('.inner-section.active');
-  if (!currentlyActiveEl) {
-    return;
-  }
-
-  currentlyActiveEl.addEventListener('transitionend', handleTransitionEnd);
-  currentlyActiveEl.classList.remove('active');
-
-  el.classList.remove('display-none');
-  setTimeout(() => {
-    document.querySelector('main').style.height = el.scrollHeight + 30 + 'px';
-
-    el.classList.add('active');
-  }, 50);
-}
-
-function handleTransitionEnd(event) {
-  const { target } = event;
-  if (!target) {
-    return;
-  }
-
-  if (!target.classList.contains('active')) {
-    target.classList.add('display-none');
-  }
-
-  target.removeEventListener('transitionend', handleTransitionEnd);
+  window.history.pushState(url, null, splitPathname.join('/'));
 }

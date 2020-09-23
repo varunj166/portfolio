@@ -14,7 +14,8 @@ module.exports = merge(common, {
     writeToDisk: false,
     port: '8080',
     host: '0.0.0.0',
-    openPage: 'http://localhost:8080/'
+    openPage: 'http://localhost:8080/',
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
